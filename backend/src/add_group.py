@@ -33,7 +33,7 @@ def add_group(
 
     try:
         # Generate a secure random token
-        token = secrets.token_urlsafe(32)
+        token = secrets.token_urlsafe(8)
 
         # Create the group
         group = Group(

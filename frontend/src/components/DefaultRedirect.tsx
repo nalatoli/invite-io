@@ -27,19 +27,21 @@ export default function DefaultRedirect() {
     return null;
   }
 
-  if (!group) {
-    return <Navigate to={`/${token}/rsvp`} replace />;
-  }
-
-  // Redirect to the first available event tab
-  if (group.invited_to_nikkah || group.invited_to_wedding) {
-    return <Navigate to={`/${token}/nikkah`} replace />;
-  }
-
-  if (group.invited_to_henna) {
-    return <Navigate to={`/${token}/henna`} replace />;
-  }
-
-  // Default to RSVP if no events are available
   return <Navigate to={`/${token}/rsvp`} replace />;
+
+  // if (!group) {
+  //   return <Navigate to={`/${token}/rsvp`} replace />;
+  // }
+
+  // // Redirect to the first available event tab
+  // if (group.invited_to_nikkah || group.invited_to_wedding) {
+  //   return <Navigate to={`/${token}/nikkah`} replace />;
+  // }
+
+  // if (group.invited_to_henna) {
+  //   return <Navigate to={`/${token}/henna`} replace />;
+  // }
+
+  // // Default to RSVP if no events are available
+  // return <Navigate to={`/${token}/rsvp`} replace />;
 }

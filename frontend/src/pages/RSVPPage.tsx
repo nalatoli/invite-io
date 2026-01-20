@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { submitRSVP, getRSVPStatus } from '../api';
 import { type Group } from '../schemas';
 import { EVENTS } from '../config/events';
@@ -21,14 +21,16 @@ export default function RSVPPage() {
   const [success, setSuccess] = useState<EventType | null>(null);
 
   const [weddingRsvp, setWeddingRsvp] = useState<EventRSVP>({
-    accepting: false,
+    accepting: true,
     guests: [],
   });
 
   const [hennaRsvp, setHennaRsvp] = useState<EventRSVP>({
-    accepting: false,
+    accepting: true,
     guests: [],
   });
+
+  const [editingEvent, setEditingEvent] = useState<EventType | null>(null);
 
   useEffect(() => {
     const loadRSVPStatus = async () => {
@@ -146,6 +148,7 @@ export default function RSVPPage() {
   const renderEventSection = (
     event: EventType,
     title: string,
+    linkPath: string,
     rsvp: EventRSVP,
     maxGuests: number,
     hasRsvped: boolean,
@@ -154,6 +157,7 @@ export default function RSVPPage() {
   ) => {
     const canAddGuests = maxGuests !== 0;
     const guestLimit = maxGuests === -1 ? 'unlimited' : maxGuests;
+    const hasEmptyGuests = rsvp.accepting && rsvp.guests.some(guest => guest.trim() === '');
 
     // If showing combined nikkah & wedding, calculate combined time
     let displayDate = '';
@@ -176,7 +180,12 @@ export default function RSVPPage() {
 
     return (
       <div className="event-rsvp-section">
-        <h2 className="event-rsvp-title">{title}</h2>
+        <h2 className="event-rsvp-title">
+          <Link to={linkPath} className="event-title-link">
+            {title}
+            <span className="event-title-link-hint">View Details</span>
+          </Link>
+        </h2>
 
         {/* <div className="event-info">
           <div className="event-info-item">
@@ -189,92 +198,121 @@ export default function RSVPPage() {
           </div>
         </div> */}
 
-        {hasRsvped && (
-          <div className={`rsvp-status-badge ${!hasAccepted ? 'declined' : ''}`}>
-            {hasAccepted ? 'RSVP Submitted - Attending' : 'RSVP Submitted - Declined'}
-          </div>
-        )}
-
-        <div className="rsvp-question">
-          <h3>Will you be attending?</h3>
-          <div className="radio-group">
-            <label className="radio-label">
-              <input
-                type="radio"
-                name={`${event}-attending`}
-                checked={rsvp.accepting}
-                onChange={() => setAccepting(event, true)}
-              />
-              <span>Yes! I'll be there!</span>
-            </label>
-            <label className="radio-label">
-              <input
-                type="radio"
-                name={`${event}-attending`}
-                checked={!rsvp.accepting}
-                onChange={() => setAccepting(event, false)}
-              />
-              <span>Sorry, can't make it</span>
-            </label>
-          </div>
-        </div>
-
-        {rsvp.accepting && canAddGuests && (
-          <div className="guests-section">
-            <h3>
-              Guest Names
-              {/* {maxGuests > 0 && (
-                <span className="guest-limit"> (Maximum: {guestLimit})</span>
-              )} */}
-            </h3>
-            <p className="guest-instruction">
-              Please enter the names of all guests attending.
-            </p>
-
-            <div className="guests-list">
-              {rsvp.guests.map((guest, index) => (
-                <div key={index} className="guest-input-row">
-                  <input
-                    type="text"
-                    value={guest}
-                    onChange={(e) => updateGuest(event, index, e.target.value)}
-                    placeholder={`Guest ${index + 1} name`}
-                    className="guest-input"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removeGuest(event, index)}
-                    className="btn-remove"
-                  >
-                    Remove
-                  </button>
-                </div>
-              ))}
-            </div>
-
-            {(maxGuests === -1 || rsvp.guests.length < maxGuests) && (
-              <button
-                type="button"
-                onClick={() => addGuest(event)}
-                className="btn-add-guest"
-              >
-                + Add Guest
-              </button>
+        {hasRsvped && editingEvent !== event ? (
+          <div className="rsvp-submitted-content">
+            <button
+              className={`rsvp-status-badge clickable ${!hasAccepted ? 'declined' : ''}`}
+              onClick={() => setEditingEvent(event)}
+            >
+              {hasAccepted ? 'RSVP Submitted - Attending' : 'RSVP Submitted - Declined'}
+              <span className="change-rsvp-hint">Tap to change</span>
+            </button>
+            {hasAccepted && rsvp.guests.length > 0 && (
+              <div className="confirmed-guests">
+                <p className="confirmed-guests-label">Confirmed guests:</p>
+                <ul className="confirmed-guests-list">
+                  {rsvp.guests.map((guest, index) => (
+                    <li key={index}>{guest}</li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
-        )}
+        ) : (
+          <div className="rsvp-form-content">
+            <div className="rsvp-question">
+              <h3>Will you be attending?</h3>
+              <div className="attendance-toggle">
+                <button
+                  type="button"
+                  className={`attendance-option ${rsvp.accepting ? 'selected' : ''}`}
+                  onClick={() => setAccepting(event, true)}
+                >
+                  <span className="attendance-icon">✓</span>
+                  <span className="attendance-text">Joyfully Accept</span>
+                </button>
+                <button
+                  type="button"
+                  className={`attendance-option decline ${!rsvp.accepting ? 'selected' : ''}`}
+                  onClick={() => setAccepting(event, false)}
+                >
+                  <span className="attendance-icon">✕</span>
+                  <span className="attendance-text">Regretfully Decline</span>
+                </button>
+              </div>
+            </div>
 
-        <button
-          onClick={() => handleSubmit(event)}
-          disabled={submitting !== null}
-          className="btn-submit"
-        >
-          {submitting === event ? 'Submitting...' : `Submit ${title} RSVP`}
-        </button>
+            {rsvp.accepting && canAddGuests && (
+              <div className="guests-section">
+                <h3>
+                  Guest Names
+                  {/* {maxGuests > 0 && (
+                    <span className="guest-limit"> (Maximum: {guestLimit})</span>
+                  )} */}
+                </h3>
+                <p className="guest-instruction">
+                  Please enter the names of all guests attending.
+                </p>
 
-        {success === event && (
-          <div className="success-message">
-            Your RSVP for {title} has been submitted successfully!
+                <div className="guests-list">
+                  {rsvp.guests.map((guest, index) => (
+                    <div key={index} className="guest-input-row">
+                      <input
+                        type="text"
+                        value={guest}
+                        onChange={(e) => updateGuest(event, index, e.target.value)}
+                        placeholder={`Guest name`}
+                        className="guest-input"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeGuest(event, index)}
+                        className="btn-remove"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                {(maxGuests === -1 || rsvp.guests.length < maxGuests) && (
+                  <button
+                    type="button"
+                    onClick={() => addGuest(event)}
+                    className="btn-add-guest"
+                  >
+                    + Add Guest
+                  </button>
+                )}
+              </div>
+            )}
+
+            <div className="rsvp-buttons">
+              {hasRsvped && (
+                <button
+                  onClick={() => setEditingEvent(null)}
+                  className="btn-cancel"
+                >
+                  Cancel
+                </button>
+              )}
+              <button
+                onClick={() => {
+                  handleSubmit(event);
+                  setEditingEvent(null);
+                }}
+                disabled={submitting !== null || hasEmptyGuests}
+                className="btn-submit"
+              >
+                {submitting === event ? 'Submitting...' : hasRsvped ? 'Update RSVP' : `Submit ${title} RSVP`}
+              </button>
+            </div>
+
+            {/* {success === event && (
+              <div className="success-message">
+                Your RSVP for {title} has been submitted successfully!
+              </div>
+            )} */}
           </div>
         )}
       </div>
@@ -291,7 +329,7 @@ export default function RSVPPage() {
   return (
     <div className="rsvp-page">
       <div className="rsvp-header">
-        <h1 className="rsvp-title">RSVP</h1>
+        {/* <h1 className="rsvp-title">RSVP</h1> */}
         <p className="rsvp-subtitle">Dear {group.name},</p>
         <p className="rsvp-description">
           We would be honored by your presence at our wedding celebrations.
@@ -303,6 +341,7 @@ export default function RSVPPage() {
         {showCombinedNikkahWedding && renderEventSection(
           'wedding',
           'Nikkah & Reception',
+          `/${token}/nikkah`,
           weddingRsvp,
           group.max_guests_wedding,
           group.has_rsvped_wedding,
@@ -313,6 +352,7 @@ export default function RSVPPage() {
         {showWeddingOnly && renderEventSection(
           'wedding',
           'Reception',
+          `/${token}/nikkah`,
           weddingRsvp,
           group.max_guests_wedding,
           group.has_rsvped_wedding,
@@ -323,6 +363,7 @@ export default function RSVPPage() {
         {group.invited_to_henna && renderEventSection(
           'henna',
           'Henna',
+          `/${token}/henna`,
           hennaRsvp,
           group.max_guests_henna,
           group.has_rsvped_henna,

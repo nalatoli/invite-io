@@ -1,0 +1,121 @@
+.intro-container {
+  display: flex;
+  flex: 1;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.intro-container.opening {
+  pointer-events: none;
+}
+
+.intro-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--card-background), var(--background));
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-container.opening .intro-card {
+  transform: translateY(100%);
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tap-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 10px rgba(212, 175, 55, 0.1);
+  }
+}
+
+.tap-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.tap-icon::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 18px;
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tap-icon::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: tapPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes tapPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.tap-greeting {
+  font-size: 2.5rem;
+  font-family: 'Great Vibes', cursive;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.tap-text {
+  font-size: 0.8rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+

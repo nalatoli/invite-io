@@ -12,14 +12,14 @@ export const EVENTS: Record<'nikkah' | 'wedding' | 'henna', EventInfo> = {
     date: 'Friday, July 17, 2026',
     time: '3pm - 4pm',
     venue: 'Marina Del Rey',
-    mapUrl: 'https://maps.google.com/?q=Marina+Del+Rey',
+    mapUrl: 'https://maps.app.goo.gl/iTfg5qRv8xPTs2v1A',
   },
   wedding: {
     name: 'Reception',
     date: 'Friday, July 17, 2026',
     time: '5pm - 9pm',
     venue: 'Marina Del Rey',
-    mapUrl: 'https://maps.google.com/?q=Marina+Del+Rey',
+    mapUrl: 'https://maps.app.goo.gl/iTfg5qRv8xPTs2v1A',
   },
   henna: {
     name: 'Henna',

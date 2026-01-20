@@ -1,6 +1,7 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import TabNavigation from './TabNavigation';
+import EnvelopeIntro from './EnvelopeIntro';
 import { verifyGroup } from '../api';
 import { type Group } from '../schemas';
 import './Layout.css';
@@ -9,6 +10,15 @@ export default function Layout() {
   const { token } = useParams<{ token: string }>();
   const [isValidToken, setIsValidToken] = useState<boolean | null>(null);
   const [group, setGroup] = useState<Group | null>(null);
+  const [showEnvelope, setShowEnvelope] = useState(() => {
+    //return true;
+    return !localStorage.getItem('invitation-opened');
+  });
+
+  const handleEnvelopeOpen = () => {
+    localStorage.setItem('invitation-opened', 'true');
+    setShowEnvelope(false);
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -71,16 +81,22 @@ export default function Layout() {
 
   return (
     <div className="layout">
-      <header className="header">
+      <header className={`header ${showEnvelope ? 'no-blur' : ''}`}>
         <img src="/bismillah.svg" alt="Bismillah" className="header-bismillah" />
         <p className="header-together">Together with their families</p>
-        <h1 className="header-title">Ummay & Norildeen</h1>
+        <h1 className="header-title">Norildeen & Ummay</h1>
         <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
       </header>
-      <TabNavigation token={token} group={group} />
-      <main className="main-content">
-        <Outlet />
-      </main>
+      {showEnvelope ? (
+        <EnvelopeIntro onOpen={handleEnvelopeOpen} group={group} />
+      ) : (
+        <>
+          <TabNavigation token={token} group={group} />
+          <main className="main-content">
+            <Outlet />
+          </main>
+        </>
+      )}
     </div>
   );
 }
