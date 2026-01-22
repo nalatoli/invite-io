@@ -25,8 +25,7 @@ export default function HennaPage() {
         <section className="event-section">
           <h2>Schedule</h2>
           <ul className="event-list">
-            {/* <li>{hennaEvent.time} - Henna Application & Celebration</li> */}
-            TBD
+            <li>{hennaEvent.time} - Henna Celebration</li>
           </ul>
         </section>
 
