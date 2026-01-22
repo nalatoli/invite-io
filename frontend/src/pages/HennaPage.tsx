@@ -10,7 +10,7 @@ export default function HennaPage() {
         <h1 className="event-title">{hennaEvent.name}</h1>
         <div className="decorative-line"></div>
         <p className="event-date">{hennaEvent.date}</p>
-        <p className="event-date">{hennaEvent.time}</p>
+        {/* <p className="event-date">{hennaEvent.time}</p> */}
         <a
           href={hennaEvent.mapUrl}
           target="_blank"
