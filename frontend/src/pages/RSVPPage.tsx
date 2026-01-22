@@ -50,7 +50,7 @@ export default function RSVPPage() {
           accepting: data.has_accepted_henna,
           guests: data.henna_guests.map(g => g.name),
         });
-      } catch (err) {
+      } catch {
         setError('Failed to load RSVP status');
       } finally {
         setLoading(false);
@@ -177,6 +177,11 @@ export default function RSVPPage() {
       displayDate = eventInfo.date;
       displayTime = eventInfo.time;
     }
+
+    console.log(success)
+    console.log(guestLimit)
+    console.log(displayDate)
+    console.log(displayTime)
 
     return (
       <div className="event-rsvp-section">

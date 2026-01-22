@@ -1,19 +1,16 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { verifyGroup } from '../api';
-import { type Group } from '../schemas';
 
 export default function DefaultRedirect() {
   const { token } = useParams<{ token: string }>();
-  const [group, setGroup] = useState<Group | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadGroup = async () => {
       if (!token) return;
       try {
-        const data = await verifyGroup(token);
-        setGroup(data);
+        await verifyGroup(token);
       } catch (err) {
         console.error('Failed to load group', err);
       } finally {
