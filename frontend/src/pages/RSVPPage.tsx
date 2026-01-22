@@ -215,7 +215,7 @@ export default function RSVPPage() {
             </button>
             {hasAccepted && rsvp.guests.length > 0 && (
               <div className="confirmed-guests">
-                <p className="confirmed-guests-label">Confirmed guests:</p>
+                <p className="confirmed-guests-label">{maxGuests === 1 ? 'Confirmed guest:' : 'Confirmed guests:'}</p>
                 <ul className="confirmed-guests-list">
                   {rsvp.guests.map((guest, index) => (
                     <li key={index}>{guest}</li>
