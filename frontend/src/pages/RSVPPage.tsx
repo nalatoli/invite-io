@@ -251,13 +251,15 @@ export default function RSVPPage() {
             {rsvp.accepting && canAddGuests && (
               <div className="guests-section">
                 <h3>
-                  Guest Names
+                  {maxGuests === 1 ? 'Guest Name' : 'Guest Names'}
                   {/* {maxGuests > 0 && (
                     <span className="guest-limit"> (Maximum: {guestLimit})</span>
                   )} */}
                 </h3>
                 <p className="guest-instruction">
-                  Please enter the names of all guests attending.
+                  {maxGuests === 1
+                    ? 'Please enter the name of your guest attending.'
+                    : 'Please enter the names of all guests attending.'}
                 </p>
 
                 <div className="guests-list">
