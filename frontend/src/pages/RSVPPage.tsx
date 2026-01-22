@@ -42,12 +42,12 @@ export default function RSVPPage() {
         setGroup(data);
 
         setWeddingRsvp({
-          accepting: data.has_accepted_wedding,
+          accepting: data.has_rsvped_wedding ? data.has_accepted_wedding : true,
           guests: data.wedding_guests.map(g => g.name),
         });
 
         setHennaRsvp({
-          accepting: data.has_accepted_henna,
+          accepting: data.has_rsvped_henna ? data.has_accepted_henna : true,
           guests: data.henna_guests.map(g => g.name),
         });
       } catch {
