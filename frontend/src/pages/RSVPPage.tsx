@@ -188,6 +188,7 @@ export default function RSVPPage() {
         <h2 className="event-rsvp-title">
           <Link to={linkPath} className="event-title-link">
             {title}
+            <span className="event-rsvp-guest-type">{event === 'henna' ? 'Women Only' : 'Mixed Event'}</span>
             <span className="event-title-link-hint">View Details</span>
           </Link>
         </h2>

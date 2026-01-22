@@ -65,6 +65,7 @@ export default function NikkahPage() {
     <div className="event-page">
       <div className="event-header">
         <h1 className="event-title">{pageTitle}</h1>
+        <p className="event-guest-type">Mixed Event</p>
         <div className="decorative-line"></div>
         <p className="event-date">{date}</p>
         <a

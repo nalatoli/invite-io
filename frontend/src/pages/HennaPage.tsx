@@ -8,6 +8,7 @@ export default function HennaPage() {
     <div className="event-page">
       <div className="event-header">
         <h1 className="event-title">{hennaEvent.name}</h1>
+        <p className="event-guest-type">Women Only</p>
         <div className="decorative-line"></div>
         <p className="event-date">{hennaEvent.date}</p>
         {/* <p className="event-date">{hennaEvent.time}</p> */}

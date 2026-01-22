@@ -61,10 +61,20 @@
 .event-title {
   font-size: 2rem;
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: 400;
   font-family: 'Great Vibes', cursive;
   animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.event-guest-type {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease-out 0.15s both;
 }
 
 .decorative-line {
