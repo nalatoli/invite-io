@@ -6,7 +6,11 @@ import { verifyGroup } from '../api';
 import { type Group } from '../schemas';
 import './Layout.css';
 
-export default function Layout() {
+interface LayoutProps {
+  publicMode?: boolean;
+}
+
+export default function Layout({ publicMode = false }: LayoutProps) {
   const { token } = useParams<{ token: string }>();
   const [isValidToken, setIsValidToken] = useState<boolean | null>(null);
   const [group, setGroup] = useState<Group | null>(null);
@@ -45,6 +49,24 @@ export default function Layout() {
       isMounted = false;
     };
   }, [token]);
+
+  // Public mode: skip token validation
+  if (publicMode) {
+    return (
+      <div className="layout">
+        <header className="header">
+          <img src="/bismillah.svg" alt="Bismillah" className="header-bismillah" />
+          <p className="header-together">Together with their families</p>
+          <h1 className="header-title">Norildeen & Ummay</h1>
+          <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
+        </header>
+        <TabNavigation publicMode />
+        <main className="main-content">
+          <Outlet />
+        </main>
+      </div>
+    );
+  }
 
   if (!token) {
     return (

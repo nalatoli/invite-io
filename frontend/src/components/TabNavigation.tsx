@@ -3,11 +3,32 @@ import { type Group } from '../schemas';
 import './TabNavigation.css';
 
 interface TabNavigationProps {
-  token: string;
-  group: Group | null;
+  token?: string;
+  group?: Group | null;
+  publicMode?: boolean;
 }
 
-export default function TabNavigation({ token, group }: TabNavigationProps) {
+export default function TabNavigation({ token, group, publicMode = false }: TabNavigationProps) {
+  // Public mode: show only Nikkah and Henna tabs (no RSVP)
+  if (publicMode) {
+    return (
+      <nav className="tab-navigation">
+        <NavLink
+          to="/nikkah"
+          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
+        >
+          Nikkah
+        </NavLink>
+        <NavLink
+          to="/henna"
+          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
+        >
+          Henna
+        </NavLink>
+      </nav>
+    );
+  }
+
   if (!group) return null;
 
   // Determine the label for the Nikkah/Wedding tab

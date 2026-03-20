@@ -10,9 +10,15 @@ export default function NikkahPage() {
   const [group, setGroup] = useState<Group | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Public mode: no token present
+  const isPublicMode = !token;
+
   useEffect(() => {
     const loadGroup = async () => {
-      if (!token) return;
+      if (!token) {
+        setLoading(false);
+        return;
+      }
       try {
         const data = await verifyGroup(token);
         setGroup(data);
@@ -33,7 +39,7 @@ export default function NikkahPage() {
     );
   }
 
-  if (!group) {
+  if (!isPublicMode && !group) {
     return (
       <div className="event-page">
         <div className="error">Failed to load event details</div>
@@ -43,8 +49,10 @@ export default function NikkahPage() {
 
   const nikkahEvent = EVENTS.nikkah;
   const weddingEvent = EVENTS.wedding;
-  const showNikkah = group.invited_to_nikkah;
-  const showWedding = group.invited_to_wedding;
+
+  // In public mode, show both Nikkah and Wedding info
+  const showNikkah = isPublicMode || (group?.invited_to_nikkah ?? false);
+  const showWedding = isPublicMode || (group?.invited_to_wedding ?? false);
 
   // Determine page title
   let pageTitle = '';
