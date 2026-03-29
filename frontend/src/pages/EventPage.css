@@ -427,6 +427,7 @@
   padding: 0.4rem 1.1rem;
   border-radius: 999px;
   transition: background 0.2s ease, color 0.2s ease;
+  background: color-mix(in srgb, var(--primary-color) 5%, transparent);
 }
 
 .event-footer a:hover {
