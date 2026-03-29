@@ -8,6 +8,7 @@ import './EventPage.css';
 export default function NikkahPage() {
   const { token } = useParams<{ token: string }>();
   const [group, setGroup] = useState<Group | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>('DESI');
   const [loading, setLoading] = useState(true);
 
   // Public mode: no token present
@@ -107,10 +108,99 @@ export default function NikkahPage() {
 
         <section className="event-section">
           <h2>Dress Code</h2>
-          {/* <p className="event-detail">Formal Traditional Attire</p> */}
-          TBD
+          <div className="summer-swatch-row">
+            <div className="summer-swatch" />
+            <span className="summer-swatch-label">Summer Colors Preffered</span>
+          </div>
+          {(() => {
+            const categories = [
+              {
+                category: 'ARAB',
+                women: [
+                  { label: 'Abaya', q: 'abaya+wedding' },
+                  { label: 'Kaftan', q: 'kaftan+wedding' },
+                  { label: 'Jalabiya', q: 'jalabiya+wedding' },
+                ],
+                men: [],
+              },
+              {
+                category: 'DESI',
+                women: [
+                  { label: 'Sharee', q: 'sharee+summer+bangladeshi+wedding' },
+                  { label: 'Lehenga', q: 'lehenga+summer+bangladeshi+wedding' },
+                  { label: 'Sharara', q: 'sharara+summer+bangladeshi+wedding' },
+                  { label: 'Anarkali', q: 'anarkali+summer+bangladeshi+wedding' },
+                ],
+                men: [
+                  { label: 'Sherwani', q: 'sherwani+summer+bangladeshi+wedding' },
+                  { label: 'Johur Coat', q: 'nehru+jacket+summer+bangladeshi+wedding' },
+                ],
+              },
+              {
+                category: 'WESTERN',
+                women: [
+                  { label: 'Gown', q: 'formal+summer+gown+wedding' },
+                ],
+                men: [
+                  { label: 'Tuxedo', q: 'tuxedo+summer+wedding' },
+                  { label: 'Suit', q: 'formal+summer+suit+wedding' },
+                ],
+              },
+            ];
+            const selected = categories.find(c => c.category === selectedCategory);
+            return (
+              <div className="dress-code-categories">
+                <div className="attire-bar">
+                  {categories.map(({ category }, i, arr) => (
+                    <>
+                      <button
+                        key={category}
+                        className={`attire-bar-item dress-code-category-btn${selectedCategory === category ? ' active' : ''}`}
+                        onClick={() => setSelectedCategory(selectedCategory === category ? null : category)}
+                      >
+                        {category}
+                      </button>
+                      {i < arr.length - 1 && <span key={`sep-${i}`} className="attire-bar-sep" />}
+                    </>
+                  ))}
+                </div>
+                {selected && (
+                  <div className="dress-code-gender-pills" key={selected.category}>
+                    {[{ gender: 'Women', items: selected.women }, { gender: 'Men', items: selected.men }].filter(({ items }) => items.length > 0).map(({ gender, items }) => (
+                      <div key={gender} className="dress-code-gender-group">
+                        <div className="attire-bar">
+                          {items.map(({ label, q }, i, arr) => (
+                            <>
+                              <a
+                                key={label}
+                                className="attire-bar-item"
+                                href={`https://www.google.com/search?q=${q}&tbm=isch`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {label}
+                              </a>
+                              {i < arr.length - 1 && <span key={`sep-${i}`} className="attire-bar-sep" />}
+                            </>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+          <p className="attire-help-text">Tap an attire above to see examples</p>
         </section>
       </div>
+
+      <footer className="event-footer">
+        <p>Please no boxed gifts at the event</p>
+        <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
+          🎁 Amazon Registry
+        </a>
+      </footer>
     </div>
   );
 }
