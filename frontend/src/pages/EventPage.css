@@ -380,7 +380,7 @@
   text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease;
   white-space: nowrap;
-  background: rgba(69, 4, 198, 0.1);
+  background: color-mix(in srgb, var(--primary-color) 5%, transparent);
 }
 
 .attire-bar-item:hover {
