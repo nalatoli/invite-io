@@ -51,23 +51,7 @@ export default function HennaPage() {
               <span>Orange</span>
             </div>
           </div>
-          <div className="attire-bar">
-            {['Sharee', 'Lehenga', 'Sharara', 'Garara', 'Anarkali'].map((style, i, arr) => (
-              <>
-                <a
-                  key={style}
-                  className="attire-bar-item"
-                  href={`https://www.google.com/search?q=${style}+bangladeshi+wedding&tbm=isch`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {style}
-                </a>
-                {i < arr.length - 1 && <span key={`sep-${i}`} className="attire-bar-sep" />}
-              </>
-            ))}
-          </div>
-          <p className="attire-help-text">Tap an attire above to see examples.<br/>Scroll horizontally to see more attire.</p>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", color: '#D4AF37', fontStyle: 'italic' }}>✦ Please embrace the festivities with Desi attire ✦</h3>
         </section>
       </div>
 
