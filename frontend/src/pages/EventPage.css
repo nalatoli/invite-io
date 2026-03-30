@@ -363,6 +363,14 @@
   border-radius: 999px;
   overflow: hidden;
   margin-bottom: 1.25rem;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.attire-bar::-webkit-scrollbar {
+  display: none;
 }
 
 .attire-bar--vertical {

@@ -56,9 +56,8 @@ export default function Layout({ publicMode = false }: LayoutProps) {
       <div className="layout">
         <header className="header">
           <img src="/bismillah.svg" alt="Bismillah" className="header-bismillah" />
-          <p className="header-together">Together with their families</p>
-          <h1 className="header-title">Norildeen & Ummay</h1>
-          <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
+          <h1 className="header-title">Norildeen & Ummay's</h1>
+          <p className="header-together">Wedding Registry</p>
         </header>
         <TabNavigation publicMode />
         <main className="main-content">
