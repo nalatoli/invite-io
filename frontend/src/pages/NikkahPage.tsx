@@ -112,7 +112,7 @@ export default function NikkahPage() {
             <span className="summer-swatch-label">Summer Colors Preffered</span>
           </div>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>We kindly request our guests to dress in</p>
-          <p style={{ marginBottom: '0.5rem', color: 'var(--text-secondary)', fontStyle: 'italic' }}>Desi · Arab · Western</p>
+          <p style={{ marginBottom: '0.5rem', color: 'var(--text-secondary)', fontStyle: 'italic' }}>Desi, Arab, or Western</p>
           <h2 style={{ fontFamily: "'Playfair Display', serif", color: '#D4AF37', fontStyle: 'italic' }}>✦ Modest Formal Attire ✦</h2>
         </section>
       </div>
