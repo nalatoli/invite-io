@@ -67,12 +67,12 @@ export default function HennaPage() {
               </>
             ))}
           </div>
-          <p className="attire-help-text">Tap an attire above to see examples</p>
+          <p className="attire-help-text">Tap an attire above to see examples.<br/>Scroll horizontally to see more attire.</p>
         </section>
       </div>
 
       <footer className="event-footer">
-        <p>Please no boxed gifts at the event</p>
+        <p>We kindly request that no boxed gifts be brought to these events</p>
         <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
           🎁 Amazon Registry
         </a>

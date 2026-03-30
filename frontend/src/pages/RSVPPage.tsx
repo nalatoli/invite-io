@@ -4,6 +4,7 @@ import { submitRSVP, getRSVPStatus } from '../api';
 import { type Group } from '../schemas';
 import { EVENTS } from '../config/events';
 import './RSVPPage.css';
+import './EventPage.css';
 
 type EventType = 'wedding' | 'henna';
 
@@ -381,6 +382,13 @@ export default function RSVPPage() {
       </div>
 
       {error && <div className="error-message-global">{error}</div>}
+
+      <footer className="event-footer">
+        <p>We kindly request that no boxed gifts be brought to these events</p>
+        <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
+          🎁 Amazon Registry
+        </a>
+      </footer>
     </div>
   );
 }
