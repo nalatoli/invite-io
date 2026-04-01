@@ -34,15 +34,6 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
   // Determine the label for the Nikkah/Wedding tab
   const showNikkah = group.invited_to_nikkah;
   const showWedding = group.invited_to_wedding;
-  let nikkahWeddingLabel = '';
-
-  if (showNikkah && showWedding) {
-    nikkahWeddingLabel = 'Nikkah & Reception';
-  } else if (showNikkah) {
-    nikkahWeddingLabel = 'Nikkah & Reception';
-  } else if (showWedding) {
-    nikkahWeddingLabel = 'Reception';
-  }
 
   return (
     <nav className="tab-navigation">
