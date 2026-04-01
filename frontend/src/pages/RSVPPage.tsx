@@ -371,7 +371,7 @@ export default function RSVPPage() {
 
         {group.invited_to_henna && renderEventSection(
           'henna',
-          'Henna',
+          'Gaye Holud & Henna',
           `/${token}/henna`,
           hennaRsvp,
           group.max_guests_henna,
