@@ -28,6 +28,9 @@
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
   background-color: var(--card-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tab-link:hover {

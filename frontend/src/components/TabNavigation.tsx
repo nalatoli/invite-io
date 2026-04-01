@@ -17,13 +17,13 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
           to="/nikkah"
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
-          Nikkah
+          Nikkah &<br />Reception
         </NavLink>
         <NavLink
           to="/henna"
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
-          Henna
+          Gaye Holud &<br />Henna
         </NavLink>
       </nav>
     );
@@ -37,9 +37,9 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
   let nikkahWeddingLabel = '';
 
   if (showNikkah && showWedding) {
-    nikkahWeddingLabel = 'Nikkah';
+    nikkahWeddingLabel = 'Nikkah & Reception';
   } else if (showNikkah) {
-    nikkahWeddingLabel = 'Nikkah';
+    nikkahWeddingLabel = 'Nikkah & Reception';
   } else if (showWedding) {
     nikkahWeddingLabel = 'Reception';
   }
@@ -51,7 +51,7 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
           to={`/${token}/nikkah`}
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
-          {nikkahWeddingLabel}
+          {showNikkah ? (<>Nikkah &<br />Reception</>) : 'Reception'}
         </NavLink>
       )}
       {group.invited_to_henna && (
@@ -59,7 +59,7 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
           to={`/${token}/henna`}
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
-          Henna
+          Gaye Holud &<br />Henna
         </NavLink>
       )}
       <NavLink
