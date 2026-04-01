@@ -51,7 +51,8 @@ export default function HennaPage() {
               <span>Orange</span>
             </div>
           </div>
-          <h3 style={{ fontFamily: "'Playfair Display', serif", color: '#D4AF37', fontStyle: 'italic' }}>✦ Please embrace the festivities with Desi attire ✦</h3>
+          <p style={{ fontFamily: "'Playfair Display', serif", color: `var(--primary-color)`, fontStyle: 'italic' }}> Please embrace the festivities with </p>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", color: '#D4AF37', fontStyle: 'italic' }}>✦ Desi Attire ✦</h3>
         </section>
       </div>
 
