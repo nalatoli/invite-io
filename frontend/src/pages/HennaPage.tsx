@@ -19,7 +19,9 @@ export default function HennaPage() {
           className="event-location"
         >
           📍 {hennaEvent.venue}
+          <span className="event-location-sub">{hennaEvent.location}</span>
         </a>
+        <p className="event-location-hint">Tap venue above to open it in Google Maps</p>
       </div>
 
       <div className="event-content">

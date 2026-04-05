@@ -66,6 +66,7 @@ export default function NikkahPage() {
 
   // Use the venue from whichever event is shown (they should be the same)
   const venue = showNikkah ? nikkahEvent.venue : weddingEvent.venue;
+  const location = showNikkah ? nikkahEvent.location : weddingEvent.location;
   const date = showNikkah ? nikkahEvent.date : weddingEvent.date;
   const mapUrl = showNikkah ? nikkahEvent.mapUrl : weddingEvent.mapUrl;
 
@@ -83,7 +84,9 @@ export default function NikkahPage() {
           className="event-location"
         >
           📍 {venue}
+          <span className="event-location-sub">{location}</span>
         </a>
+        <p className="event-location-hint">Tap venue above to open it in Google Maps</p>
       </div>
 
       <div className="event-content">

@@ -108,6 +108,22 @@
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
+.event-location-sub {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 0.2rem;
+}
+
+.event-location-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.5rem;
+  opacity: 0.6;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
 .event-location:hover {
   background-color: var(--primary-color);
   color: white;
