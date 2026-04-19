@@ -97,7 +97,7 @@ export default function NikkahPage() {
             {showNikkah && (
               <>
                 <li>{nikkahEvent.time} - Nikkah Ceremony</li>
-                <li>3:30pm - 5pm - Light Refreshments</li>
+                <li>3:30pm - 5:00pm - Light Refreshments</li>
               </>
             )}
             {showWedding && (

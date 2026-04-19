@@ -28,8 +28,8 @@ export default function HennaPage() {
         <section className="event-section">
           <h2>Schedule</h2>
           <ul className="event-list">
-            <li>5pm - 7pm - Gaye Holud</li>
-            <li>7pm - 10pm - Henna</li>
+            <li>5:00pm - 7:00pm - Gaye Holud</li>
+            <li>7:00pm - 10:00pm - Henna</li>
           </ul>
         </section>
 
