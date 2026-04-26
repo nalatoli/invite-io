@@ -11,7 +11,7 @@ export const EVENTS: Record<'nikkah' | 'wedding' | 'henna', EventInfo> = {
   nikkah: {
     name: 'Nikkah',
     date: 'Friday, July 17, 2026',
-    time: '2:30pm - 3:30pm',
+    time: '3:00pm - 4:30pm',
     venue: 'Marina Del Rey',
     location: 'The Bronx, NY',
     mapUrl: 'https://maps.app.goo.gl/iTfg5qRv8xPTs2v1A',
@@ -19,7 +19,7 @@ export const EVENTS: Record<'nikkah' | 'wedding' | 'henna', EventInfo> = {
   wedding: {
     name: 'Reception',
     date: 'Friday, July 17, 2026',
-    time: '5:00pm - 9:00pm',
+    time: '6:00pm - 10:00pm',
     venue: 'Marina Del Rey',
     location: 'The Bronx, NY',
     mapUrl: 'https://maps.app.goo.gl/iTfg5qRv8xPTs2v1A',
