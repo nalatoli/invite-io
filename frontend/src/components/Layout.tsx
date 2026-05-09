@@ -71,11 +71,11 @@ export default function Layout({ publicMode = false }: LayoutProps) {
         </header>
         <div className="sticky-nav">
           <TabNavigation publicMode />
-          <RegistryBar />
         </div>
         <main className="main-content">
           <Outlet />
         </main>
+        <RegistryBar />
       </div>
     );
   }
@@ -127,11 +127,11 @@ export default function Layout({ publicMode = false }: LayoutProps) {
         <>
           <div className="sticky-nav">
             <TabNavigation token={token} group={group} />
-            <RegistryBar />
           </div>
           <main className="main-content">
             <Outlet />
           </main>
+          <RegistryBar />
         </>
       )}
     </div>

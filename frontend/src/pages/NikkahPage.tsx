@@ -108,10 +108,9 @@ export default function NikkahPage() {
           </ul>
         </section>
 
-        <section className="event-section">
+        <section className="event-section" style={{ paddingBottom: '0.75rem' }}>
           <h2>Dress Code</h2>
-          <div className="summer-swatch-row">
-            <div className="summer-swatch" />
+          <div className="summer-swatch-row" style={{ marginBottom: 0, marginTop: '-0.75rem' }}>
             <span className="summer-swatch-label">Pastel Colors Preffered</span>
           </div>
           <p style={{ color: `var(--primary-color)`, marginBottom: '0.4rem' }}>We kindly request our guests to dress in</p>
