@@ -39,21 +39,21 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
 
   return (
     <nav className="tab-navigation">
-      {group.invited_to_henna && (
-        <NavLink
-          to={`/${token}/henna`}
-          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
-        >
-          <span className="tab-label">Gaye Holud &<br />Bridal Henna</span>
-          <span className="tab-hint">Tap to View</span>
-        </NavLink>
-      )}
       {(showNikkah || showWedding) && (
         <NavLink
           to={`/${token}/nikkah`}
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
           <span className="tab-label">{showNikkah ? (<>Nikkah &<br />Reception</>) : 'Reception'}</span>
+          <span className="tab-hint">Tap to View</span>
+        </NavLink>
+      )}
+      {group.invited_to_henna && (
+        <NavLink
+          to={`/${token}/henna`}
+          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
+        >
+          <span className="tab-label">Gaye Holud &<br />Bridal Henna</span>
           <span className="tab-hint">Tap to View</span>
         </NavLink>
       )}
