@@ -61,15 +61,15 @@ export default function Layout({ publicMode = false }: LayoutProps) {
           <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
         </header>
         <TabNavigation publicMode />
-        <main className="main-content">
-          <Outlet />
-        </main>
-        <footer className="sticky-registry-footer">
+        <div className="registry-bar">
           <p>We kindly request that no boxed gifts be brought to these events</p>
           <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
             🎁 Amazon Registry
           </a>
-        </footer>
+        </div>
+        <main className="main-content">
+          <Outlet />
+        </main>
       </div>
     );
   }
@@ -120,15 +120,15 @@ export default function Layout({ publicMode = false }: LayoutProps) {
       ) : (
         <>
           <TabNavigation token={token} group={group} />
-          <main className="main-content">
-            <Outlet />
-          </main>
-          <footer className="sticky-registry-footer">
+          <div className="registry-bar">
             <p>We kindly request that no boxed gifts be brought to these events</p>
             <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
               🎁 Amazon Registry
             </a>
-          </footer>
+          </div>
+          <main className="main-content">
+            <Outlet />
+          </main>
         </>
       )}
     </div>
