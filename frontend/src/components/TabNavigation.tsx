@@ -17,13 +17,15 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
           to="/nikkah"
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
-          Nikkah &<br />Reception
+          <span className="tab-label">Nikkah &<br />Reception</span>
+          <span className="tab-hint">Tap to View</span>
         </NavLink>
         <NavLink
           to="/henna"
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
-          Gaye Holud &<br />Henna
+          <span className="tab-label">Gaye Holud &<br />Henna</span>
+          <span className="tab-hint">Tap to View</span>
         </NavLink>
       </nav>
     );
@@ -42,7 +44,8 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
           to={`/${token}/nikkah`}
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
-          {showNikkah ? (<>Nikkah &<br />Reception</>) : 'Reception'}
+          <span className="tab-label">{showNikkah ? (<>Nikkah &<br />Reception</>) : 'Reception'}</span>
+          <span className="tab-hint">Tap to View</span>
         </NavLink>
       )}
       {group.invited_to_henna && (
@@ -50,14 +53,16 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
           to={`/${token}/henna`}
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
-          Gaye Holud &<br />Henna
+          <span className="tab-label">Gaye Holud &<br />Henna</span>
+          <span className="tab-hint">tap to view</span>
         </NavLink>
       )}
       <NavLink
         to={`/${token}/rsvp`}
         className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
       >
-        RSVP
+        <span className="tab-label">RSVP</span>
+        <span className="tab-hint">tap to view</span>
       </NavLink>
     </nav>
   );

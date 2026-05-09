@@ -29,8 +29,21 @@
   transition: all 0.3s ease;
   background-color: var(--card-background);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.15rem;
+}
+
+.tab-label {
+  line-height: 1.3;
+}
+
+.tab-hint {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.55;
+  letter-spacing: 0.02em;
 }
 
 .tab-link:hover {

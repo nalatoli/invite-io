@@ -64,6 +64,12 @@ export default function Layout({ publicMode = false }: LayoutProps) {
         <main className="main-content">
           <Outlet />
         </main>
+        <footer className="sticky-registry-footer">
+          <p>We kindly request that no boxed gifts be brought to these events</p>
+          <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
+            🎁 Amazon Registry
+          </a>
+        </footer>
       </div>
     );
   }
@@ -117,6 +123,12 @@ export default function Layout({ publicMode = false }: LayoutProps) {
           <main className="main-content">
             <Outlet />
           </main>
+          <footer className="sticky-registry-footer">
+            <p>We kindly request that no boxed gifts be brought to these events</p>
+            <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
+              🎁 Amazon Registry
+            </a>
+          </footer>
         </>
       )}
     </div>

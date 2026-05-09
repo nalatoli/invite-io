@@ -190,7 +190,7 @@ export default function RSVPPage() {
           <Link to={linkPath} className="event-title-link">
             {title}
             <span className="event-rsvp-guest-type">{event === 'henna' ? 'Women Only' : 'Mixed Event'}</span>
-            <span className="event-title-link-hint">View Details</span>
+            <span className="event-title-link-hint">Click to View Details</span>
           </Link>
         </h2>
 
@@ -383,12 +383,6 @@ export default function RSVPPage() {
 
       {error && <div className="error-message-global">{error}</div>}
 
-      <footer className="event-footer">
-        <p>We kindly request that no boxed gifts be brought to these events</p>
-        <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
-          🎁 Amazon Registry
-        </a>
-      </footer>
     </div>
   );
 }

@@ -112,7 +112,7 @@ export default function NikkahPage() {
           <h2>Dress Code</h2>
           <div className="summer-swatch-row">
             <div className="summer-swatch" />
-            <span className="summer-swatch-label">Summer Colors Preffered</span>
+            <span className="summer-swatch-label">Pastel Colors Preffered</span>
           </div>
           <p style={{ color: `var(--primary-color)`, marginBottom: '0.4rem' }}>We kindly request our guests to dress in</p>
           <p style={{ marginBottom: '0.5rem', color: `var(--primary-color)`, fontStyle: 'italic' }}>Desi, Arab, or Western</p>
@@ -120,12 +120,6 @@ export default function NikkahPage() {
         </section>
       </div>
 
-      <footer className="event-footer">
-        <p>We kindly request that no boxed gifts be brought to these events</p>
-        <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
-          🎁 Amazon Registry
-        </a>
-      </footer>
     </div>
   );
 }
