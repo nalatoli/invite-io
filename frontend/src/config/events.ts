@@ -25,7 +25,7 @@ export const EVENTS: Record<'nikkah' | 'wedding' | 'henna', EventInfo> = {
     mapUrl: 'https://maps.app.goo.gl/iTfg5qRv8xPTs2v1A',
   },
   henna: {
-    name: 'Gaye Holud & Henna',
+    name: 'Gaye Holud & Bridal Henna',
     date: 'Saturday, July 11, 2026',
     time: '5:00pm - 10:00pm',
     venue: 'MAS Youth Center',

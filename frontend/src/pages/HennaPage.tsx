@@ -29,7 +29,7 @@ export default function HennaPage() {
           <h2>Schedule</h2>
           <ul className="event-list">
             <li>5:00pm - 7:00pm - Gaye Holud</li>
-            <li>7:00pm - 10:00pm - Henna</li>
+            <li>7:00pm - 10:00pm - Bridal Henna</li>
           </ul>
         </section>
 
