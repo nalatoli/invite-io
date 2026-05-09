@@ -54,7 +54,7 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
           <span className="tab-label">Gaye Holud &<br />Henna</span>
-          <span className="tab-hint">tap to view</span>
+          <span className="tab-hint">Tap to View</span>
         </NavLink>
       )}
       <NavLink
@@ -62,7 +62,7 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
         className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
       >
         <span className="tab-label">RSVP</span>
-        <span className="tab-hint">tap to view</span>
+        <span className="tab-hint">Tap to View</span>
       </NavLink>
     </nav>
   );
