@@ -63,7 +63,7 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: url('/invite-background-1.svg');
-  background-size: 200% auto;
+  background-size: 240% auto;
   background-position: 47% 45%;
   background-repeat: no-repeat;
   z-index: -1;
