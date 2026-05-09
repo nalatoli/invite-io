@@ -48,12 +48,13 @@ body {
 
 @keyframes blurIn {
   from {
-    filter: blur(0px) brightness(0.5) opacity(0.22);
+    filter: blur(0px) brightness(0.25) opacity(0.22);
   }
   to {
-    filter: blur(1px) brightness(0.5) opacity(0.22);
+    filter: blur(1px) brightness(0.25) opacity(0.22);
   }
 }
+
 
 body::before {
   content: '';
