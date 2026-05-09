@@ -22,7 +22,7 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 1.5rem;
-  min-height: calc(100vh - 70px);
+
   animation: fadeIn 0.6s ease-out;
 }
 
