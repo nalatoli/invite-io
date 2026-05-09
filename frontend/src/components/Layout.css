@@ -152,15 +152,14 @@
 
 .registry-bar p {
   font-size: 0.75rem;
-  color: var(--text-secondary);
+  color: var(--secondary-color);
   font-style: italic;
   margin: 0;
-  opacity: 0.8;
 }
 
 .registry-bar a {
   font-size: 0.85rem;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
   border: 1px solid var(--primary-color);
   padding: 0.25rem 0.9rem;
