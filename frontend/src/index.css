@@ -48,10 +48,10 @@ body {
 
 @keyframes blurIn {
   from {
-    filter: blur(0px) brightness(0.6) opacity(0.5);
+    filter: blur(0px) brightness(0.5) opacity(0.22);
   }
   to {
-    filter: blur(2px) brightness(0.6) opacity(0.5);
+    filter: blur(1px) brightness(0.5) opacity(0.22);
   }
 }
 
@@ -67,21 +67,21 @@ body::before {
   background-position: 47% 45%;
   background-repeat: no-repeat;
   z-index: -1;
-  filter: blur(2px) brightness(0.6) opacity(0.5);
+  filter: blur(1px) brightness(0.88) opacity(0.22);
   animation: blurIn 1.2s ease-out;
 }
 
 @media (prefers-color-scheme: dark) {
   body::before {
-    filter: blur(2px) invert(1) brightness(0.4) opacity(0.4);
+    filter: blur(1px) invert(1) brightness(0.25) opacity(0.18);
   }
 
   @keyframes blurIn {
     from {
-      filter: blur(0px) invert(1) brightness(0.4) opacity(0.4);
+      filter: blur(0px) invert(1) brightness(0.25) opacity(0.18);
     }
     to {
-      filter: blur(2px) invert(1) brightness(0.4) opacity(0.4);
+      filter: blur(1px) invert(1) brightness(0.25) opacity(0.18);
     }
   }
 }
