@@ -10,6 +10,15 @@ interface LayoutProps {
   publicMode?: boolean;
 }
 
+const RegistryBar = () => (
+  <div className="registry-bar">
+    <p>We kindly request that no boxed gifts be brought to these events</p>
+    <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
+      🎁 Amazon Registry
+    </a>
+  </div>
+);
+
 export default function Layout({ publicMode = false }: LayoutProps) {
   const { token } = useParams<{ token: string }>();
   const [isValidToken, setIsValidToken] = useState<boolean | null>(null);
@@ -54,20 +63,17 @@ export default function Layout({ publicMode = false }: LayoutProps) {
   if (publicMode) {
     return (
       <div className="layout">
-        <TabNavigation publicMode />
-        <div className="registry-bar">
-          <p>We kindly request that no boxed gifts be brought to these events</p>
-          <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
-            🎁 Amazon Registry
-          </a>
+        <header className="header">
+          <img src="/bismillah.svg" alt="Bismillah" className="header-bismillah" />
+          <p className="header-together">Together with their families</p>
+          <h1 className="header-title">Norildeen & Ummay</h1>
+          <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
+        </header>
+        <div className="sticky-nav">
+          <TabNavigation publicMode />
+          <RegistryBar />
         </div>
         <main className="main-content">
-          <header className="header">
-            <img src="/bismillah.svg" alt="Bismillah" className="header-bismillah" />
-            <p className="header-together">Together with their families</p>
-            <h1 className="header-title">Norildeen & Ummay</h1>
-            <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
-          </header>
           <Outlet />
         </main>
       </div>
@@ -109,32 +115,21 @@ export default function Layout({ publicMode = false }: LayoutProps) {
 
   return (
     <div className="layout">
+      <header className={`header ${showEnvelope ? 'no-blur' : ''}`}>
+        <img src="/bismillah.svg" alt="Bismillah" className="header-bismillah" />
+        <p className="header-together">Together with their families</p>
+        <h1 className="header-title">Norildeen & Ummay</h1>
+        <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
+      </header>
       {showEnvelope ? (
-        <>
-          <header className={`header ${showEnvelope ? 'no-blur' : ''}`}>
-            <img src="/bismillah.svg" alt="Bismillah" className="header-bismillah" />
-            <p className="header-together">Together with their families</p>
-            <h1 className="header-title">Norildeen & Ummay</h1>
-            <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
-          </header>
-          <EnvelopeIntro onOpen={handleEnvelopeOpen} group={group} />
-        </>
+        <EnvelopeIntro onOpen={handleEnvelopeOpen} group={group} />
       ) : (
         <>
-          <TabNavigation token={token} group={group} />
-          <div className="registry-bar">
-            <p>We kindly request that no boxed gifts be brought to these events</p>
-            <a href="https://www.amazon.com/wedding/guest-view/JVLKC30FV72B" target="_blank" rel="noopener noreferrer">
-              🎁 Amazon Registry
-            </a>
+          <div className="sticky-nav">
+            <TabNavigation token={token} group={group} />
+            <RegistryBar />
           </div>
           <main className="main-content">
-            <header className="header">
-              <img src="/bismillah.svg" alt="Bismillah" className="header-bismillah" />
-              <p className="header-together">Together with their families</p>
-              <h1 className="header-title">Norildeen & Ummay</h1>
-              <p className="header-invite">Cordially invite you to their Wedding Celebration</p>
-            </header>
             <Outlet />
           </main>
         </>

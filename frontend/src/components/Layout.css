@@ -46,10 +46,15 @@
 }
 
 .layout {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header {
@@ -128,8 +133,7 @@
 
 .main-content {
   flex: 1;
-  overflow-y: auto;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   animation: fadeIn 0.6s ease-out 0.6s both;
 }
 
