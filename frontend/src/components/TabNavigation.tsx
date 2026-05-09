@@ -14,17 +14,17 @@ export default function TabNavigation({ token, group, publicMode = false }: TabN
     return (
       <nav className="tab-navigation">
         <NavLink
-          to="/henna"
-          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
-        >
-          <span className="tab-label">Gaye Holud &<br />Bridal Henna</span>
-          <span className="tab-hint">Tap to View</span>
-        </NavLink>
-        <NavLink
           to="/nikkah"
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
         >
           <span className="tab-label">Nikkah &<br />Reception</span>
+          <span className="tab-hint">Tap to View</span>
+        </NavLink>
+        <NavLink
+          to="/henna"
+          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
+        >
+          <span className="tab-label">Gaye Holud &<br />Bridal Henna</span>
           <span className="tab-hint">Tap to View</span>
         </NavLink>
       </nav>
